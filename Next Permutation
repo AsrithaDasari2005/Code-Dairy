@@ -1,0 +1,43 @@
+class Solution {
+    //helper functions
+    //swap
+    public static void swap(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+    //reverse
+    public static void reverse(int[] arr, int start, int end){
+        while(start< end){
+            swap(arr, start++, end--);
+        }
+    }
+    
+    
+    static void nextPermutation(int[] arr) {
+        // code here
+        int n=arr.length;
+        // pivot 
+        int pivot =-1;
+        for(int i=n-2;i>=0;i--){
+            if(arr[i]<arr[i+1]){
+                pivot =i;
+                break;
+            }
+        }
+        // if pivot not there
+        if(pivot ==-1){
+            reverse(arr, 0,n-1);
+            return;
+        }
+        // find just larger element in the decending ordered set just after the pivot le
+        for (int i=n-1;i>pivot;i--){
+            if(arr[i] > arr[pivot]){
+                swap(arr,i,pivot);
+                break;
+            }
+            
+        }
+        reverse(arr, pivot + 1, n-1);
+    }
+}
