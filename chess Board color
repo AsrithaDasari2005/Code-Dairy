@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class Main {
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        String s=sc.nextLine();
+        int c1 = s.charAt(0) - 'a' + 1;
+        int c2 = Character.getNumericValue(s.charAt(1));
+        if(c1%2==0 && c2%2==0||(c1%2!=0 && c2%2!=0) ) {
+            System.out.print("Black");
+        }
+        else{
+            System.out.print("White");
+        }
+        
+
+
+    }
+}
